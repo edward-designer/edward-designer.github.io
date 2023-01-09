@@ -218,6 +218,7 @@ a {
 }
 .projects div {
   font-family: "Six Caps", sans-serif;
+  font-weight: normal;
   background: var(--default-text);
   color: var(--default-bg);
   font-weight: 700;
@@ -231,7 +232,7 @@ a {
 .hScroll {
   position: relative;
   background: transparent;
-  height: 900dvw;
+  height: 400dvw;
   width: 200dvw;
   transform: translateX(
     clamp(-200dvw, calc((var(--progress, 0) - 0.4) / 0.8 * -100%), 100dvw)
