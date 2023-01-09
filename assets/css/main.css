@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,200;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=BenchNine:wght@300;700&family=Nova+Square&family=Six+Caps&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Six+Caps&display=swap");
+
+:root {
+  --accent-color: rgb(164 117 181 / 1);
+  --accent-color-transnparent: rgba(79, 47, 91, 0.4);
+  --accent-color2: rgb(255 0 0 / 0.95);
+  --default-bg: rgb(0 0 0 / 0.95);
+  --default-text: rgb(255 255 255 / 1);
+  --default-text-outfocus: rgb(255 255 255 / 0.3);
+  --project1: rgb(255 0 0 / 0.95);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0;
+}
+
+body {
+  font-family: "Barlow Condensed", sans-serif;
+  background: var(--default-text);
+  cursor: none;
+  overflow-x: hidden;
+}
+
+div {
+  background: var(--default-bg);
+  color: var(--default-text);
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--default-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* cursor */
+.ring {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  z-index: 100;
+  background: transparent;
+  border: 1px solid white;
+  mix-blend-mode: exclusion;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* logo */
+.logo {
+  font-family: "Nova Square", sans-serif;
+  font-size: clamp(40px, 4dvw, 60px);
+  color: var(--default-text);
+  display: flex;
+  letter-spacing: -0.05ch;
+  position: fixed;
+  top: 3dvh;
+  left: 4dvw;
+  background: transparent;
+  height: auto;
+  z-index: 10;
+  mix-blend-mode: exclusion;
+}
+
+.logo span {
+  display: inline-block;
+}
+
+.logo span > span:first-child {
+  color: var(--accent-color);
+}
+
+/* quickLinks */
+.quickLinks {
+  position: fixed;
+  top: 4dvh;
+  right: 4dvw;
+  background: transparent;
+}
+.quickLinks a {
+  color: var(--default-text-outfocus);
+  width: clamp(40px, 4dvw, 50px);
+  margin-left: 1rem;
+}
+.quickLinks a:hover {
+  color: var(--default-text);
+}
+
+/* introContainer */
+.introContainer {
+  background: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 1) 0%,
+    rgb(255 255 255 / 1) 60%,
+    rgb(255 255 255 / 0) 100%
+  );
+}
+
+/* about */
+.aboutContainer {
+  height: 100dvh;
+  background-color: var(--default-bg);
+  background-image: radial-gradient(
+      at 22% 80%,
+      hsla(323, 12%, 12%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 33% 98%, hsla(340, 82%, 68%, 0.43) 0px, transparent 50%),
+    radial-gradient(at 96% 34%, hsla(347, 91%, 71%, 0.54) 0px, transparent 50%),
+    radial-gradient(at 90% 18%, hsla(270, 0%, 0%, 1) 0px, transparent 50%),
+    radial-gradient(at 81% 93%, hsla(308, 0%, 0%, 1) 0px, transparent 50%),
+    radial-gradient(at 68% 98%, hsla(70, 62%, 75%, 0.37) 0px, transparent 50%),
+    radial-gradient(at 92% 60%, hsla(78, 79%, 62%, 0.53) 0px, transparent 50%);
+  z-index: 1;
+}
+.about {
+  background: transparent;
+  color: var(--default-text);
+  top: clamp(-40dvh, calc(40dvh - var(--progress, 0) * 250dvh), 40dvh);
+  position: fixed;
+  padding-left: 3dvw;
+  font-size: clamp(2rem, 10dvw, 8rem);
+  mix-blend-mode: exclusion;
+  z-index: 8;
+  pointer-events: none;
+  height: 100dvh;
+}
+.about h1 {
+  font-weight: 200;
+  opacity: clamp(0.4, calc(1 - 6 * var(--progress, 0)), 1);
+}
+.about span {
+  display: block;
+  font-size: 4dvw;
+  font-style: italic;
+  mix-blend-mode: difference;
+  padding-left: 1dvw;
+  opacity: 0;
+  animation: textIn 0.5s ease-in 2s forwards;
+}
+@keyframes textIn {
+  from {
+    transform: translate(-2dvw, 0);
+    opacity: 0.4;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.detailContainer {
+  z-index: 10;
+  position: relative;
+  padding-left: 4dvw;
+  transform: translateY(calc((var(--progress, 0) * -4000px)));
+  background: var(--default-bg);
+  display: flex;
+  align-items: center;
+  margin-top: 35dvh;
+}
+.detailContainer ul {
+  font-size: 3dvh;
+  color: transparent;
+  padding-bottom: 35dvh;
+}
+.detailContainer li {
+  padding-top: 6dvh;
+  transition: all 0.5s ease-in-out;
+  padding-right: 10dvw;
+}
+.liIn {
+  color: var(--default-text);
+  transform: translate(4dvw, 0) scale(1.2);
+}
+.liOut {
+  color: var(--default-text-outfocus);
+  transform: translate(-2dvw, 0) scale(1);
+}
+
+/* projects scroller */
+.projects {
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+  transform: rotate(5deg);
+  overflow: auto;
+  left: -20%;
+}
+.projects div {
+  font-family: "Six Caps", sans-serif;
+  background: var(--default-text);
+  color: var(--default-bg);
+  font-weight: 700;
+  font-size: 8dvh;
+  white-space: nowrap;
+  transform: translateX(calc((var(--progress) * -7000px)));
+  text-transform: uppercase;
+}
+
+/* hScroll */
+.hScroll {
+  position: relative;
+  background: transparent;
+  height: 900dvw;
+  width: 200dvw;
+  transform: translateX(
+    clamp(-200dvw, calc((var(--progress, 0) - 0.4) / 0.8 * -100%), 100dvw)
+  );
+  z-index: 9;
+  margin-bottom: 100dvh;
+}
+.hScroll > div {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  height: 100dvh;
+}
+.hScroll::before {
+  content: "";
+  display: block;
+  width: 80dvh;
+  height: 80dvh;
+  background: var(--accent-color-transnparent);
+  left: -4%;
+  top: 10%;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 10;
+  transform: scale(clamp(0.5, calc((var(--progress, 0) - 0.16) * 20), 1))
+    translateY(-10dvh);
+  pointer-events: none;
+}
+
+.projectContainer {
+  display: flex;
+  font-size: 1.5rem;
+}
+.projectContainer > div {
+  background: url("/images/image-001.jpg") no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100dvw;
+  background-color: transparent;
+  padding: 2dvw;
+}
+.projectContainer > div:nth-child(2) {
+  background: url("/images/image-002.jpg") no-repeat;
+  background-size: cover;
+}
+.projectContainer h1 {
+  font-family: "Six Caps", sans-serif;
+  font-size: 14dvh;
+  font-weight: normal;
+  text-shadow: 0.5dvh 0.5dvh 0.5dvh rgb(0 0 0 / 0.5);
+}
+.projectContainer h1 span {
+  font-size: 4dvh;
+  color: var(--project1);
+  background-color: var(--default-text);
+  text-shadow: none;
+  display: inline-block;
+  transform: translateY(-100%);
+  padding: 0 8dvh;
+  position: relative;
+  left: -3dvh;
+}
+.projectContainer > div > div {
+  background: rgb(0 0 0 / 0.4);
+  padding: 2dvw;
+  backdrop-filter: blur(5px);
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.projectContainer > div > div > div {
+  background: transparent;
+}
+
+.projectContainer a {
+  display: inline-block;
+  width: clamp(200px, 50dvw, 400px);
+}
+.projectLinks a {
+  display: inline-block;
+  width: 8dvh;
+  transition: all 0.2s ease-in-out;
+}
+.projectLinks a:hover {
+  transform: scale(1.4) perspective(400px) rotate3d(1, -1, 1, 40deg);
+  filter: drop-shadow(0 0 0.75rem var(--default-bg));
+}
+
+.contact {
+  scale: var(--progress, 1);
+  mix-blend-mode: exclusion !important;
+  filter: invert(1) !important;
+  border-radius: 50%;
+  transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
+    translateY(-10dvh);
+  transform-origin: 0% 0%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 5dvh;
+  z-index: 22;
+  position: relative;
+  height: 100dvh;
+  max-width: 100dvw;
+  max-height: 100dvw;
+  aspect-ratio: 1;
+}
+.contact p {
+  font-size: 4dvw;
+  color: var(--default-text-outfocus);
+}
+.links {
+  flex: 1;
+  background: transparent;
+  display: flex;
+  gap: 2dvw;
+}
+.links a {
+  flex: 1;
+  color: var(--default-text);
+  transition: all 0.2s ease-in-out;
+}
+.links a:hover {
+  transform: scale(1.4) perspective(400px) rotate3d(1, -1, 1, 40deg);
+  filter: drop-shadow(0 0 0.75rem var(--default-bg));
+}
+
+.scene {
+  position: fixed;
+  top: 0;
+  transform: translate(
+      calc((var(--progress, 0) * 20%)),
+      calc((var(--progress, 0) * 20%))
+    )
+    scale(calc(1 + 2 * var(--progress, 0)));
+  z-index: 3;
+  width: 100dvw;
+  height: 100dvh;
+  pointer-events: none;
+}
+
+@media (max-width: 800px) {
+  .projectContainer div div div:first-child {
+    display: none;
+  }
+  .introContainer {
+    height: 120dvh;
+  }
+  .projectContainer {
+    font-size: 1rem;
+  }
+  .hScroll {
+    height: 1200dvh;
+  }
+  .contact {
+    transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
+      translateY(-30dvh);
+  }
+}
