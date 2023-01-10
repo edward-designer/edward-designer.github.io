@@ -140,10 +140,10 @@ a {
 .about {
   background: transparent;
   color: var(--default-text);
-  top: clamp(-40dvh, calc(40dvh - var(--progress, 0) * 250dvh), 40dvh);
+  top: clamp(-40vh, calc(40vh - var(--progress, 0) * 250vh), 40vh);
   position: fixed;
-  padding-left: 3dvw;
-  font-size: clamp(2rem, 10dvw, 8rem);
+  padding-left: 3vw;
+  font-size: clamp(2rem, 10vw, 8rem);
   mix-blend-mode: exclusion;
   z-index: 8;
   pointer-events: none;
@@ -155,16 +155,16 @@ a {
 }
 .about span {
   display: block;
-  font-size: 4dvw;
+  font-size: 4vw;
   font-style: italic;
   mix-blend-mode: difference;
-  padding-left: 1dvw;
+  padding-left: 1vw;
   opacity: 0;
   animation: textIn 0.5s ease-in 2s forwards;
 }
 @keyframes textIn {
   from {
-    transform: translate(-2dvw, 0);
+    transform: translate(-dvw, 0);
     opacity: 0.4;
   }
   to {
@@ -176,30 +176,30 @@ a {
 .detailContainer {
   z-index: 10;
   position: relative;
-  padding-left: 4dvw;
+  padding-left: 4vw;
   transform: translateY(calc((var(--progress, 0) * -4000px)));
   background: var(--default-bg);
   display: flex;
   align-items: center;
-  margin-top: 35dvh;
+  margin-top: 35vh;
 }
 .detailContainer ul {
-  font-size: 3dvh;
+  font-size: 3vh;
   color: transparent;
   padding-bottom: 35dvh;
 }
 .detailContainer li {
-  padding-top: 6dvh;
+  padding-top: 6vh;
   transition: all 0.5s ease-in-out;
-  padding-right: 10dvw;
+  padding-right: 10vw;
 }
 .liIn {
   color: var(--default-text);
-  transform: translate(4dvw, 0) scale(1.2);
+  transform: translate(4vw, 0) scale(1.2);
 }
 .liOut {
   color: var(--default-text-outfocus);
-  transform: translate(-2dvw, 0) scale(1);
+  transform: translate(-2vw, 0) scale(1);
 }
 
 /* projects scroller */
@@ -217,7 +217,7 @@ a {
   background: var(--default-text);
   color: var(--default-bg);
   font-weight: 700;
-  font-size: 8dvh;
+  font-size: 8vh;
   white-space: nowrap;
   transform: translateX(calc((var(--progress) * -7000px)));
   text-transform: uppercase;
@@ -247,8 +247,8 @@ a {
 .hScroll::before {
   content: "";
   display: block;
-  width: 80dvh;
-  height: 80dvh;
+  width: 80vh;
+  height: 80vh;
   background: var(--accent-color-transnparent);
   left: -4%;
   top: 10%;
@@ -256,7 +256,7 @@ a {
   border-radius: 50%;
   z-index: 10;
   transform: scale(clamp(0.5, calc((var(--progress, 0) - 0.16) * 20), 1))
-    translateY(-10dvh);
+    translateY(-10vh);
   pointer-events: none;
 }
 
@@ -270,7 +270,7 @@ a {
   height: 100%;
   width: 100dvw;
   background-color: transparent;
-  padding: 2dvw;
+  padding: 2vw;
 }
 .projectContainer > div:nth-child(2) {
   background: url("/images/image-002.jpg") no-repeat;
@@ -278,9 +278,9 @@ a {
 }
 .projectContainer h1 {
   font-family: "Six Caps", sans-serif;
-  font-size: 18dvh;
+  font-size: 18vh;
   font-weight: normal;
-  text-shadow: 0.5dvh 0.5dvh 0.5dvh rgb(0 0 0 / 0.5);
+  text-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
   overflow: hidden;
   position: relative;
 }
@@ -294,9 +294,9 @@ a {
   text-shadow: none;
   display: inline-block;
   transform: translateY(-100%);
-  padding: 0 8dvh;
+  padding: 0 8vh;
   position: relative;
-  left: -3dvh;
+  left: -3vh;
   font-style: normal;
   overflow: hidden;
 }
@@ -306,7 +306,7 @@ a {
 }
 .projectContainer > div > div {
   background: rgb(0 0 0 / 0.4);
-  padding: 2dvw;
+  padding: 2vw;
   backdrop-filter: blur(5px);
   display: flex;
   gap: 2rem;
@@ -319,11 +319,11 @@ a {
 
 .projectContainer a {
   display: inline-block;
-  width: clamp(200px, 50dvw, 400px);
+  width: clamp(200px, 50vw, 400px);
 }
 .projectLinks a {
   display: inline-block;
-  width: 8dvh;
+  width: 8vh;
   transition: all 0.2s ease-in-out;
 }
 .projectLinks a:hover {
@@ -333,16 +333,16 @@ a {
 
 .contact {
   scale: var(--progress, 1);
-  mix-blend-mode: exclusion !important;
-  filter: invert(1) !important;
+  mix-blend-mode: exclusion;
+  filter: invert(1);
   border-radius: 50%;
   transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
-    translateY(-10dvh);
+    translateY(-10vh);
   transform-origin: 0% 0%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-size: 5dvh;
+  font-size: 5vh;
   z-index: 22;
   position: relative;
   height: 100dvh;
@@ -351,14 +351,14 @@ a {
   aspect-ratio: 1;
 }
 .contact p {
-  font-size: 4dvw;
+  font-size: 4vw;
   color: var(--default-text-outfocus);
 }
 .links {
   flex: 1;
   background: transparent;
   display: flex;
-  gap: 2dvw;
+  gap: 2vw;
 }
 .links a {
   flex: 1;
@@ -403,6 +403,7 @@ a {
     background: transparent;
     margin-bottom: 200px;
   }
+
   .projects {
     position: relative;
     width: 140%;
@@ -437,7 +438,7 @@ a {
     font-size: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 2dvh;
+    gap: 2vh;
     background: var(--default-text);
   }
   .projectContainer h1 em {
@@ -454,9 +455,11 @@ a {
   }
   .contact {
     transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
-      translateY(-10dvh);
-    top: 20dvh;
-    margin-bottom: 20dvh;
+      translateY(-10vh);
+    top: 20vh;
+    margin-bottom: 20vh;
+    mix-blend-mode: multiply;
+    filter: none;
   }
   .mobile {
     display: block;
