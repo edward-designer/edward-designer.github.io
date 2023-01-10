@@ -136,11 +136,9 @@ window.onload = () => {
   let observerCallback2 = (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log(entry.target.id, 1);
         animationh1[entry.target.id].reverse();
         animationh1[entry.target.id].restart();
       } else {
-        console.log(entry.target.id, 2);
         animationh1[entry.target.id].reverse();
         animationh1[entry.target.id].play();
       }

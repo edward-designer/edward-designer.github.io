@@ -389,14 +389,19 @@ a {
 }
 
 /* touch devices */
-/*@media (hover: none) and (pointer: coarse) {*/
-@media (max-width: 800px) {
+@media (hover: none) and (pointer: coarse), (max-width: 780px) {
+  /*@media (max-width: 800px) {*/
+  .detailContainer {
+    transform: translateY(0);
+    margin-top: 0;
+  }
   html {
     overflow-x: hidden;
   }
   .introContainer {
-    height: 160dvh;
+    height: auto;
     background: transparent;
+    margin-bottom: 200px;
   }
   .projects {
     position: relative;
@@ -446,6 +451,8 @@ a {
   .contact {
     transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
       translateY(-10dvh);
+    top: 20dvh;
+    margin-bottom: 20dvh;
   }
   .mobile {
     display: block;
