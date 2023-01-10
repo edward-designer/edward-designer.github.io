@@ -117,12 +117,7 @@ a {
 
 /* introContainer */
 .introContainer {
-  background: linear-gradient(
-    to bottom,
-    rgb(255 255 255 / 1) 0%,
-    rgb(255 255 255 / 1) 60%,
-    rgb(255 255 255 / 0) 100%
-  );
+  background: var(--default-text);
 }
 
 /* about */
@@ -227,12 +222,15 @@ a {
   transform: translateX(calc((var(--progress) * -7000px)));
   text-transform: uppercase;
 }
+.projects span {
+  color: var(--accent-color2);
+}
 
 /* hScroll */
 .hScroll {
   position: relative;
   background: transparent;
-  height: 400dvw;
+  height: 900dvw;
   width: 200dvw;
   transform: translateX(
     clamp(-200dvw, calc((var(--progress, 0) - 0.4) / 0.8 * -100%), 100dvw)
@@ -283,8 +281,13 @@ a {
   font-size: 14dvh;
   font-weight: normal;
   text-shadow: 0.5dvh 0.5dvh 0.5dvh rgb(0 0 0 / 0.5);
+  overflow: hidden;
+  position: relative;
 }
-.projectContainer h1 span {
+.projectContainer h1 strong {
+  font-weight: normal;
+}
+.projectContainer h1 em {
   font-size: 4dvh;
   color: var(--project1);
   background-color: var(--default-text);
@@ -294,6 +297,12 @@ a {
   padding: 0 8dvh;
   position: relative;
   left: -3dvh;
+  font-style: normal;
+  overflow: hidden;
+}
+.projectContainer h1 span {
+  position: relative;
+  top: 1em;
 }
 .projectContainer > div > div {
   background: rgb(0 0 0 / 0.4);
@@ -375,21 +384,70 @@ a {
   pointer-events: none;
 }
 
+.mobile {
+  display: none;
+}
+
+/* touch devices */
+/*@media (hover: none) and (pointer: coarse) {*/
 @media (max-width: 800px) {
-  .projectContainer div div div:first-child {
-    display: none;
+  html {
+    overflow-x: hidden;
   }
   .introContainer {
-    height: 120dvh;
+    height: 160dvh;
+    background: transparent;
+  }
+  .projects {
+    position: relative;
+    width: 140%;
+    overflow-x: hidden;
+    background: transparent;
+  }
+  .projects div {
+    transform: translateX(calc(((var(--progress) - 0.4) * -500px)));
+    background: transparent;
+  }
+  .projects.mobile div {
+    transform: translateX(calc(((var(--progress) - 0.5) * -300px)));
+    background: transparent;
+  }
+  .hScroll {
+    width: 100dvh;
+    height: auto;
+    transform: translateX(0);
+    margin-bottom: 0;
+  }
+  .hScroll > div {
+    height: auto;
+  }
+  .hScroll::before {
+    display: none;
   }
   .projectContainer {
     font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2dvh;
+    background: var(--default-text);
   }
-  .hScroll {
-    height: 1200dvh;
+  .projectContainer h1 em {
+    display: block;
+    position: relative;
+    top: 1.5em;
+  }
+  .projectContainer div div {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .projectContainer div div div {
+    flex-direction: column;
   }
   .contact {
     transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
-      translateY(-30dvh);
+      translateY(-10dvh);
+  }
+  .mobile {
+    display: block;
   }
 }

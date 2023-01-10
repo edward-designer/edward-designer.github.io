@@ -4,29 +4,13 @@ const addElement = () => {
   newRing.classList.add("ring");
   document.body.appendChild(newRing);
 };
-for (let i = 0; i <= 6; i++) {
-  addElement();
+if (!window.matchMedia("(pointer: coarse)").matches) {
+  for (let i = 0; i <= 6; i++) {
+    addElement();
+  }
 }
-
 const ring = document.querySelectorAll(".ring");
 const link = document.querySelectorAll("a");
-
-/* intersection observer */
-const detailsBullet = document.querySelectorAll(".detailContainer li");
-let options = {
-  rootMargin: "-100px 100px -100px 100px",
-  threshold: 1.0,
-};
-let observerCallback = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList = "liIn";
-    } else {
-      entry.target.classList = "liOut";
-    }
-  });
-};
-let observer = new IntersectionObserver(observerCallback, options);
 
 window.onload = () => {
   /* custom cursor */
@@ -55,8 +39,36 @@ window.onload = () => {
     })
   );
 
-  /* intersection observer */
-  detailsBullet.forEach((li) => observer.observe(li));
+  /* h1s */
+  const h1stext = new Letterize({
+    targets: ".projectContainer>div h1 strong",
+  }).list;
+
+  let animationh1 = [];
+  animationh1[0] = anime.timeline({
+    loop: false,
+    duration: 1000,
+  });
+  animationh1[1] = anime.timeline({
+    loop: false,
+    duration: 1000,
+  });
+
+  h1stext.forEach((word, wordIndex) => {
+    word.forEach((alphabet, index) => {
+      animationh1[wordIndex].add(
+        {
+          targets: alphabet,
+          top: 0,
+          delay: 100 * index,
+          easing: "easeInOutExpo",
+          autoplay: false,
+          direction: "normal",
+        },
+        0
+      );
+    });
+  });
 
   /* logo */
   const text = new Letterize({
@@ -98,6 +110,46 @@ window.onload = () => {
     animation.reverse();
     animation.play();
   });
+
+  /* intersection observers */
+  const detailsBullet = document.querySelectorAll(".detailContainer li");
+  let options = {
+    rootMargin: "-100px 100px -100px 100px",
+    threshold: 0.8,
+  };
+  let observerCallback = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList = "liIn";
+      } else {
+        entry.target.classList = "liOut";
+      }
+    });
+  };
+  let observer = new IntersectionObserver(observerCallback, options);
+
+  const h1s = document.querySelectorAll(".projectContainer h1");
+  let options2 = {
+    rootMargin: "0px 0px 0px 50px",
+    threshold: 0.7,
+  };
+  let observerCallback2 = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log(entry.target.id, 1);
+        animationh1[entry.target.id].reverse();
+        animationh1[entry.target.id].restart();
+      } else {
+        console.log(entry.target.id, 2);
+        animationh1[entry.target.id].reverse();
+        animationh1[entry.target.id].play();
+      }
+    });
+  };
+  let observer2 = new IntersectionObserver(observerCallback2, options2);
+  /* intersection observer */
+  detailsBullet.forEach((li) => observer.observe(li));
+  h1s.forEach((h1) => observer2.observe(h1));
 };
 
 /*--------------------
