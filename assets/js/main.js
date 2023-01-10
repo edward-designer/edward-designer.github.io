@@ -115,7 +115,7 @@ window.onload = () => {
   const detailsBullet = document.querySelectorAll(".detailContainer li");
   let options = {
     rootMargin: "-100px 100px -100px 100px",
-    threshold: 0.8,
+    threshold: 0.6,
   };
   let observerCallback = (entries) => {
     entries.forEach((entry) => {
@@ -196,8 +196,6 @@ const setup = () => {
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(width, height);
   renderer.setClearColor(0xebebeb, 0);
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMapSoft = true;
 
   scene.fog = new THREE.Fog(0x000000, 10, 950);
 
@@ -264,24 +262,6 @@ const createBubble = () => {
   scene.add(bubble);
 };
 createBubble();
-
-/*--------------------
-Plane
---------------------*/
-const createPlane = () => {
-  const planeGeometry = new THREE.PlaneBufferGeometry(2000, 2000);
-  const planeMaterial = new THREE.ShadowMaterial({
-    opacity: 0.15,
-  });
-  const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-  plane.position.y = -150;
-  plane.position.x = 0;
-  plane.position.z = 0;
-  plane.rotation.x = (Math.PI / 180) * -90;
-  plane.receiveShadow = true;
-  scene.add(plane);
-};
-createPlane();
 
 /*--------------------
 Map

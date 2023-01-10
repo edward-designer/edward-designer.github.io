@@ -352,7 +352,7 @@ a {
 }
 .contact p {
   font-size: 4vw;
-  color: var(--default-text-outfocus);
+  color: var(--default-text);
 }
 .links {
   flex: 1;
