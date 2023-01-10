@@ -278,7 +278,7 @@ a {
 }
 .projectContainer h1 {
   font-family: "Six Caps", sans-serif;
-  font-size: 14dvh;
+  font-size: 18dvh;
   font-weight: normal;
   text-shadow: 0.5dvh 0.5dvh 0.5dvh rgb(0 0 0 / 0.5);
   overflow: hidden;
@@ -412,10 +412,14 @@ a {
   .projects div {
     transform: translateX(calc(((var(--progress) - 0.4) * -500px)));
     background: transparent;
+    font-size: 80px;
+    margin-left: -20px;
   }
   .projects.mobile div {
-    transform: translateX(calc(((var(--progress) - 0.5) * -300px)));
+    transform: translateX(calc(((var(--progress) - 0.5) * -900px)));
     background: transparent;
+    font-size: 80px;
+    margin-left: -100px;
   }
   .hScroll {
     width: 100dvh;
