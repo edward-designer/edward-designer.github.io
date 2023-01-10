@@ -1,4 +1,4 @@
-/* custom cursor */
+/*** custom cursor ***/
 const addElement = () => {
   const newRing = document.createElement("div");
   newRing.classList.add("ring");
@@ -39,7 +39,7 @@ window.onload = () => {
     })
   );
 
-  /* h1s */
+  /* Heading animation */
   const h1stext = new Letterize({
     targets: ".projectContainer>div h1 strong",
   }).list;
@@ -70,7 +70,7 @@ window.onload = () => {
     });
   });
 
-  /* logo */
+  /*** Logo animation ***/
   const text = new Letterize({
     targets: ".logo span",
   }).list;
@@ -150,9 +150,7 @@ window.onload = () => {
   h1s.forEach((h1) => observer2.observe(h1));
 };
 
-/*--------------------
-Lenis
----------------------*/
+/***  Lenis ***/
 const lenis = new Lenis({
   duration: 1.2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
@@ -165,7 +163,7 @@ const lenis = new Lenis({
   infinite: false,
 });
 
-//get scroll value
+/* get scroll value */
 lenis.on("scroll", ({ scroll, limit, velocity, direction, progress }) => {
   //console.log({ scroll, limit, velocity, direction, progress });
   document.documentElement.style.setProperty("--progress", progress);
@@ -178,9 +176,8 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-/*--------------------
-3d object
---------------------*/
+/*** interactive 3d object ***/
+/* Setup */
 //console.clear();
 const canvas = document.querySelector(".scene");
 let width = canvas.offsetWidth,
@@ -215,9 +212,7 @@ const setup = () => {
 };
 setup();
 
-/*--------------------
-Lights
---------------------*/
+/* Lighting */
 let hemispshereLight, shadowLight, light2;
 const createLights = () => {
   hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000, 0.5);
@@ -238,9 +233,7 @@ const createLights = () => {
 };
 createLights();
 
-/*--------------------
-Bubble
---------------------*/
+/* Bubble */
 const bubbleGeometry = new THREE.IcosahedronGeometry(100, 2);
 let bubble;
 const createBubble = () => {
@@ -263,18 +256,13 @@ const createBubble = () => {
 };
 createBubble();
 
-/*--------------------
-Map
---------------------*/
+/* Helpers */
 const map = (num, in_min, in_max, out_min, out_max) => {
   return (
     5 * (((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min)
   );
 };
 
-/*--------------------
-Distance
---------------------*/
 const distance = (a, b) => {
   const dx = a.x - b.x;
   const dy = a.y - b.y;
@@ -282,9 +270,7 @@ const distance = (a, b) => {
   return d;
 };
 
-/*--------------------
-Mouse
---------------------*/
+/* Interactions */
 let mouse = new THREE.Vector2(0, 0);
 const onMouseMove = (e) => {
   TweenMax.to(mouse, 0.8, {
@@ -297,9 +283,6 @@ const onMouseMove = (e) => {
   window.addEventListener(event, onMouseMove);
 });
 
-/*--------------------
-Resize
---------------------*/
 const onResize = () => {
   canvas.style.width = "";
   canvas.style.height = "";
@@ -316,9 +299,7 @@ window.addEventListener("resize", function () {
   resizeTm = setTimeout(onResize, 200);
 });
 
-/*--------------------
-Noise
---------------------*/
+/* Add Noise */
 let dist = new THREE.Vector2(0, 0);
 let maxDist = distance(mouse, { x: width / 2.5, y: height / 2.5 });
 const updateVertices = (time) => {
@@ -339,9 +320,7 @@ const updateVertices = (time) => {
   bubbleGeometry.verticesNeedUpdate = true;
 };
 
-/*--------------------
-Animate
---------------------*/
+/* Animate */
 const render = (a) => {
   requestAnimationFrame(render);
   bubble.rotation.y = -4 + map(mouse.x, 0, width, 0, 4);
