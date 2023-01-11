@@ -15,7 +15,6 @@
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -72,8 +71,6 @@ a {
   border: 1px solid white;
   mix-blend-mode: exclusion;
   border-radius: 100%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   opacity: 1;
   pointer-events: none;
@@ -84,8 +81,6 @@ a {
   font-family: "Nova Square", sans-serif;
   font-size: clamp(40px, 4dvw, 60px);
   color: var(--default-text);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   letter-spacing: -0.05ch;
   position: fixed;
@@ -103,32 +98,6 @@ a {
 
 .logo span > span:first-child {
   color: var(--accent-color);
-}
-
-/* scrolldown */
-.scroll {
-  background-color: transparent;
-  position: fixed;
-  bottom: 2vw;
-  left: 4vw;
-  width: 5vw;
-  animation: scroll-down 1s alternate ease-in-out infinite;
-}
-@keyframes scroll-down {
-  0% {
-    opacity: 0.8;
-  }
-  40% {
-    transform: translateY(0);
-    opacity: 0.6;
-  }
-  80% {
-    opacity: 0.4;
-  }
-  100% {
-    transform: translateY(10vw);
-    opacity: 0;
-  }
 }
 
 /* quickLinks */
@@ -156,19 +125,6 @@ a {
 .aboutContainer {
   height: 100dvh;
   background-color: var(--default-bg);
-  background-image: -o-radial-gradient(
-      at 22% 80%,
-      hsla(323, 12%, 12%, 1) 0px,
-      transparent 50%
-    ),
-    -o-radial-gradient(at 33% 98%, hsla(340, 82%, 68%, 0.43) 0px, transparent
-          50%),
-    -o-radial-gradient(at 96% 34%, hsla(347, 91%, 71%, 0.54) 0px, transparent
-          50%),
-    -o-radial-gradient(at 90% 18%, hsla(270, 0%, 0%, 1) 0px, transparent 50%),
-    -o-radial-gradient(at 81% 93%, hsla(308, 0%, 0%, 1) 0px, transparent 50%),
-    -o-radial-gradient(at 68% 98%, hsla(70, 62%, 75%, 0.37) 0px, transparent 50%),
-    -o-radial-gradient(at 92% 60%, hsla(78, 79%, 62%, 0.53) 0px, transparent 50%);
   background-image: radial-gradient(
       at 22% 80%,
       hsla(323, 12%, 12%, 1) 0px,
@@ -205,29 +161,14 @@ a {
   mix-blend-mode: difference;
   padding-left: 1vw;
   opacity: 0;
-  -webkit-animation: textIn 0.5s ease-in 2s forwards;
   animation: textIn 0.5s ease-in 2s forwards;
-}
-@-webkit-keyframes textIn {
-  from {
-    -webkit-transform: translate(-1dvw, 0);
-    transform: translate(-1dvw, 0);
-    opacity: 0.4;
-  }
-  to {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-    opacity: 1;
-  }
 }
 @keyframes textIn {
   from {
-    -webkit-transform: translate(-dvw, 0);
     transform: translate(-dvw, 0);
     opacity: 0.4;
   }
   to {
-    -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
     opacity: 1;
   }
@@ -237,15 +178,9 @@ a {
   z-index: 10;
   position: relative;
   padding-left: 4vw;
-  -webkit-transform: translateY(calc((var(--progress, 0) * -4000px)));
-  -ms-transform: translateY(calc((var(--progress, 0) * -4000px)));
   transform: translateY(calc((var(--progress, 0) * -4000px)));
   background: var(--default-bg);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   margin-top: 35vh;
 }
@@ -256,20 +191,16 @@ a {
 }
 .detailContainer li {
   padding-top: 6vh;
-  -webkit-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  padding-right: 20vw;
-  line-height: 4vh;
-  transform-origin: 0;
+  padding-right: 10vw;
 }
 .liIn {
   color: var(--default-text);
-  transform: scale(1.2);
+  font-size: 4vh;
 }
 .liOut {
   color: var(--default-text-outfocus);
-  transform: scale(1);
+  font-size: 3vh;
 }
 
 /* projects scroller */
@@ -277,8 +208,6 @@ a {
   position: fixed;
   bottom: 0;
   z-index: -1;
-  -webkit-transform: rotate(5deg);
-  -ms-transform: rotate(5deg);
   transform: rotate(5deg);
   overflow: auto;
   left: -20%;
@@ -291,8 +220,6 @@ a {
   font-weight: 700;
   font-size: 8vh;
   white-space: nowrap;
-  -webkit-transform: translateX(calc((var(--progress) * -7000px)));
-  -ms-transform: translateX(calc((var(--progress) * -7000px)));
   transform: translateX(calc((var(--progress) * -7000px)));
   text-transform: uppercase;
 }
@@ -306,12 +233,6 @@ a {
   background: transparent;
   height: 900dvw;
   width: 200dvw;
-  -webkit-transform: translateX(
-    clamp(-200dvw, calc((var(--progress, 0) - 0.4) / 0.8 * -100%), 100dvw)
-  );
-  -ms-transform: translateX(
-    clamp(-200dvw, calc((var(--progress, 0) - 0.4) / 0.8 * -100%), 100dvw)
-  );
   transform: translateX(
     clamp(-200dvw, calc((var(--progress, 0) - 0.4) / 0.8 * -100%), 100dvw)
   );
@@ -335,20 +256,12 @@ a {
   position: absolute;
   border-radius: 50%;
   z-index: 10;
-  -webkit-transform: scale(
-      clamp(0.5, calc((var(--progress, 0) - 0.16) * 20), 1)
-    )
-    translateY(-10vh);
-  -ms-transform: scale(clamp(0.5, calc((var(--progress, 0) - 0.16) * 20), 1))
-    translateY(-10vh);
   transform: scale(clamp(0.5, calc((var(--progress, 0) - 0.16) * 20), 1))
     translateY(-10vh);
   pointer-events: none;
 }
 
 .projectContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   font-size: 1.5rem;
 }
@@ -381,8 +294,6 @@ a {
   background-color: var(--default-text);
   text-shadow: none;
   display: inline-block;
-  -webkit-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
   transform: translateY(-100%);
   padding: 0 8vh;
   position: relative;
@@ -397,17 +308,10 @@ a {
 .projectContainer > div > div {
   background: rgb(0 0 0 / 0.4);
   padding: 2vw;
-  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 2rem;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 .projectContainer > div > div > div {
@@ -421,40 +325,23 @@ a {
 .projectLinks a {
   display: inline-block;
   width: 8vh;
-  -webkit-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 .projectLinks a:hover {
-  -webkit-transform: scale(1.4) perspective(400px) rotate3d(1, -1, 1, 40deg);
   transform: scale(1.4) perspective(400px) rotate3d(1, -1, 1, 40deg);
-  -webkit-filter: drop-shadow(0 0 0.75rem var(--default-bg));
   filter: drop-shadow(0 0 0.75rem var(--default-bg));
 }
 
 .contact {
   scale: var(--progress, 1);
   mix-blend-mode: exclusion;
-  -webkit-filter: invert(1);
   filter: invert(1);
   border-radius: 50%;
-  -webkit-transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
-    translateY(-10vh);
-  -ms-transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
-    translateY(-10vh);
   transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
     translateY(-10vh);
-  -webkit-transform-origin: 0% 0%;
-  -ms-transform-origin: 0% 0%;
   transform-origin: 0% 0%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   font-size: 5vh;
   z-index: 22;
@@ -469,44 +356,24 @@ a {
   color: var(--default-text);
 }
 .links {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   background: transparent;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 2vw;
 }
 .links a {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   color: var(--default-text);
-  -webkit-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 .links a:hover {
-  -webkit-transform: scale(1.4) perspective(400px) rotate3d(1, -1, 1, 40deg);
   transform: scale(1.4) perspective(400px) rotate3d(1, -1, 1, 40deg);
-  -webkit-filter: drop-shadow(0 0 0.75rem var(--default-bg));
   filter: drop-shadow(0 0 0.75rem var(--default-bg));
 }
 
 .scene {
   position: fixed;
   top: 0;
-  -webkit-transform: translate(
-      calc((var(--progress, 0) * 20%)),
-      calc((var(--progress, 0) * 20%))
-    )
-    scale(calc(1 + 2 * var(--progress, 0)));
-  -ms-transform: translate(
-      calc((var(--progress, 0) * 20%)),
-      calc((var(--progress, 0) * 20%))
-    )
-    scale(calc(1 + 2 * var(--progress, 0)));
   transform: translate(
       calc((var(--progress, 0) * 20%)),
       calc((var(--progress, 0) * 20%))
@@ -526,8 +393,6 @@ a {
 @media (hover: none) and (pointer: coarse), (max-width: 780px) {
   /*@media (max-width: 800px) {*/
   .detailContainer {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
     transform: translateY(0);
     margin-top: 0;
   }
@@ -546,16 +411,12 @@ a {
     background: transparent;
   }
   .projects div {
-    -webkit-transform: translateX(calc(((var(--progress) - 0.4) * -500px)));
-    -ms-transform: translateX(calc(((var(--progress) - 0.4) * -500px)));
     transform: translateX(calc(((var(--progress) - 0.4) * -500px)));
     background: transparent;
     font-size: 80px;
     margin-left: -20px;
   }
   .projects.mobile div {
-    -webkit-transform: translateX(calc(((var(--progress) - 0.5) * -900px)));
-    -ms-transform: translateX(calc(((var(--progress) - 0.5) * -900px)));
     transform: translateX(calc(((var(--progress) - 0.5) * -900px)));
     background: transparent;
     font-size: 80px;
@@ -564,8 +425,6 @@ a {
   .hScroll {
     width: 100dvh;
     height: auto;
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
     transform: translateX(0);
     margin-bottom: 0;
   }
@@ -577,12 +436,7 @@ a {
   }
   .projectContainer {
     font-size: 1rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     gap: 2vh;
     background: var(--default-text);
@@ -593,33 +447,18 @@ a {
     top: 1.5em;
   }
   .projectContainer div div {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-    -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
   .projectContainer div div div {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
   }
   .contact {
-    -webkit-transform: scale(
-        clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1)
-      )
-      translateY(-10vh);
-    -ms-transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
-      translateY(-10vh);
     transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
       translateY(-10vh);
     top: 20vh;
     margin-bottom: 20vh;
     mix-blend-mode: multiply;
-    -webkit-filter: none;
     filter: none;
   }
   .mobile {

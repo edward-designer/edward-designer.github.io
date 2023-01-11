@@ -176,7 +176,7 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-/*** interactive 3d object ***/
+/*** THREE.js ***/
 /* Setup */
 //console.clear();
 const canvas = document.querySelector(".scene");
@@ -192,7 +192,6 @@ const scene = new THREE.Scene();
 const setup = () => {
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(width, height);
-  renderer.setClearColor(0xebebeb, 0);
 
   scene.fog = new THREE.Fog(0x000000, 10, 950);
 
@@ -213,7 +212,7 @@ const setup = () => {
 setup();
 
 /* Lighting */
-let hemispshereLight, shadowLight, light2;
+let hemispshereLight, light1, light2, light3;
 const createLights = () => {
   hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000, 0.5);
 
@@ -250,8 +249,6 @@ const createBubble = () => {
     wireframe: true,
   });
   bubble = new THREE.Mesh(bubbleGeometry, bubbleMaterial);
-  bubble.castShadow = false;
-  bubble.receiveShadow = false;
   scene.add(bubble);
 };
 createBubble();
