@@ -29,7 +29,8 @@ body {
   overflow-x: hidden;
 }
 
-div {
+div,
+section {
   background: var(--default-bg);
   color: var(--default-text);
 }
@@ -195,11 +196,11 @@ a {
 }
 .liIn {
   color: var(--default-text);
-  transform: translate(4vw, 0) scale(1.2);
+  font-size: 4vh;
 }
 .liOut {
   color: var(--default-text-outfocus);
-  transform: translate(-2vw, 0) scale(1);
+  font-size: 3vh;
 }
 
 /* projects scroller */
