@@ -289,6 +289,7 @@ const onResize = () => {
   camera.updateProjectionMatrix();
   maxDist = distance(mouse, { x: width / 2, y: height / 2 });
   renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
 };
 let resizeTm;
 window.addEventListener("resize", function () {
@@ -327,4 +328,5 @@ const render = (a) => {
   renderer.render(scene, camera);
 };
 requestAnimationFrame(render);
+renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
 renderer.render(scene, camera);

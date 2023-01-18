@@ -501,17 +501,17 @@ a {
       calc((var(--progress, 0) * 20%)),
       calc((var(--progress, 0) * 20%))
     )
-    scale(calc(1 + 2 * var(--progress, 0)));
+    scale(calc(1 + var(--progress, 0)));
   -ms-transform: translate(
       calc((var(--progress, 0) * 20%)),
       calc((var(--progress, 0) * 20%))
     )
-    scale(calc(1 + 2 * var(--progress, 0)));
+    scale(calc(1 + var(--progress, 0)));
   transform: translate(
       calc((var(--progress, 0) * 20%)),
       calc((var(--progress, 0) * 20%))
     )
-    scale(calc(1 + 2 * var(--progress, 0)));
+    scale(calc(1 + var(--progress, 0)));
   z-index: 3;
   width: 100dvw;
   height: 100dvh;
