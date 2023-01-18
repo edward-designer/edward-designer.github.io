@@ -190,7 +190,7 @@ const renderer = new THREE.WebGLRenderer({
 const scene = new THREE.Scene();
 
 const setup = () => {
-  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
   renderer.setSize(width, height);
 
   scene.fog = new THREE.Fog(0x000000, 10, 950);
@@ -328,5 +328,4 @@ const render = (a) => {
   renderer.render(scene, camera);
 };
 requestAnimationFrame(render);
-renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
 renderer.render(scene, camera);
