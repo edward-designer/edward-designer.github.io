@@ -544,6 +544,9 @@ a {
 /* touch devices */
 @media (hover: none) and (pointer: coarse), (max-width: 780px) {
   /*@media (max-width: 800px) {*/
+  .scene {
+    display: none;
+  }
   .detailContainer {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
@@ -587,7 +590,7 @@ a {
     -ms-transform: translateX(0);
     transform: translateX(0);
     translate: 0;
-    margin-bottom: -100vh;
+    margin-bottom: 0vh;
   }
   .hScroll > div {
     height: auto;
@@ -628,11 +631,13 @@ a {
     flex-direction: column;
   }
   .contact {
-    -webkit-transform: scale(clamp(0, calc((var(--progress, 0) - 0.9) * 20), 1))
+    -webkit-transform: scale(
+        clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1)
+      )
       translateY(-10vh);
-    -ms-transform: scale(clamp(0, calc((var(--progress, 0) - 0.9) * 20), 1))
+    -ms-transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
       translateY(-10vh);
-    transform: scale(clamp(0, calc((var(--progress, 0) - 0.9) * 20), 1))
+    transform: scale(clamp(0, calc((var(--progress, 0) - 0.95) * 20), 1))
       translateY(-10vh);
     top: 20vh;
     margin-bottom: 20vh;
