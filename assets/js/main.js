@@ -53,7 +53,14 @@ window.onload = () => {
     loop: false,
     duration: 1000,
   });
-
+  animationh1[2] = anime.timeline({
+    loop: false,
+    duration: 1000,
+  });
+  animationh1[3] = anime.timeline({
+    loop: false,
+    duration: 1000,
+  });
   h1stext.forEach((word, wordIndex) => {
     word.forEach((alphabet, index) => {
       animationh1[wordIndex].add(
