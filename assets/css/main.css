@@ -369,7 +369,7 @@ a {
 .projectContainer > div:nth-child(3) {
   background: url("/images/bg-aide.jpg") no-repeat;
   background-size: cover;
-   background-position: center;
+  background-position: center;
 }
 .projectContainer > div:nth-child(4) {
   background: url("/images/image-002.jpg") no-repeat;
@@ -546,7 +546,7 @@ a {
 @media (hover: none) and (pointer: coarse), (max-width: 780px) {
   /*@media (max-width: 800px) {*/
   .scene {
-    display: none;
+    pointer-events: none;
   }
   .detailContainer {
     -webkit-transform: translateY(0);
