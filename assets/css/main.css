@@ -586,6 +586,7 @@ a {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
+    translate: 0;
     margin-bottom: -100vh;
   }
   .hScroll > div {
