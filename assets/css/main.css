@@ -646,7 +646,14 @@ a {
     -webkit-filter: none;
     filter: none;
   }
+  .projects div {
+    -webkit-transform: translateX(calc((var(--progress) * -3000px)));
+    -ms-transform: translateX(calc((var(--progress) * -3000px)));
+    transform: translateX(calc((var(--progress) * -3000px)));
+  }
   .mobile {
     display: block;
+    margin-left: -100px;
+    z-index:100;
   }
 }
