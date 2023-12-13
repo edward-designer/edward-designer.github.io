@@ -653,7 +653,6 @@ a {
   }
   .mobile {
     display: block;
-    margin-left: -100px;
     z-index:100;
   }
 }
